@@ -29,6 +29,29 @@
     padding:32px 20px;
   }
   .card{width:100%; max-width:420px; text-align:center;}
+
+  .hero-block{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    padding:32px 20px 26px;
+    margin-bottom:22px;
+    background:
+      linear-gradient(180deg, rgba(25,21,16,0.55) 0%, rgba(25,21,16,0.78) 100%),
+      linear-gradient(135deg, #2A2118 0%, var(--ink) 100%);
+    background-size:cover;
+    background-position:center;
+  }
+  .hero-block .logo,
+  .hero-block .subtitle,
+  .hero-block .cta-line{
+    position:relative;
+    z-index:1;
+  }
+  .hero-block .logo{color:#fff; margin-bottom:6px;}
+  .hero-block .logo span{color:var(--blue);}
+  .hero-block .subtitle{color:rgba(255,255,255,0.75);}
+  .hero-block .cta-line{color:#fff; margin-bottom:0;}
   .logo{font-family:'Sora',sans-serif; font-weight:800; font-size:23px; letter-spacing:-0.01em; color:var(--ink); margin-bottom:6px;}
   .logo span{color:var(--blue);}
   .subtitle{font-size:15px; color:var(--clay); font-weight:600; margin-bottom:8px;}
@@ -85,9 +108,11 @@
 </head>
 <body>
   <div class="card">
-    <div class="logo">BLINDA<span>CELL</span></div>
-    <p class="subtitle">Blindagem profissional de celulares</p>
-    <p class="cta-line">👇 Toque em uma opção abaixo</p>
+    <div class="hero-block">
+      <div class="logo">BLINDA<span>CELL</span></div>
+      <p class="subtitle">Blindagem profissional de celulares</p>
+      <p class="cta-line">👇 Toque em uma opção abaixo</p>
+    </div>
 
     <div class="links">
       <a class="link-btn primary" href="https://blindacell.shop" target="_blank">
