@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blindacell — Transforme a blindagem de celulares na sua próxima fonte de renda</title>
+<meta name="description" content="Aprenda a técnica de blindagem de celulares e comece a atender em poucos dias. Curso completo com kit de líquidos, suporte no WhatsApp e garantia de 7 dias.">
+<meta property="og:title" content="Blindacell — Transforme a blindagem de celulares na sua próxima fonte de renda">
+<meta property="og:description" content="Curso completo de blindagem de celulares, com kit de líquidos incluso. Suporte no WhatsApp e garantia de 7 dias.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@600&display=optional" fetchpriority="high">
 <style>
   :root{
     --ink:#191510;
@@ -61,23 +66,17 @@
   .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(27,79,224,0.4);}
   .btn-primary svg{transition:transform .16s ease;}
   .btn-primary:hover svg{transform:translateX(3px);}
-  .btn-ghost{
-    background:transparent;
-    color:var(--ink);
-    border:1.5px solid var(--line);
-  }
-  .btn-ghost:hover{border-color:var(--ink);}
   .btn-block{width:100%;}
 
   .receipt-tag{
     font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
+    font-size:9.5px;
     font-weight:600;
     letter-spacing:0.04em;
     color:var(--green);
     background:var(--green-bg);
-    border-radius:6px;
-    padding:5px 10px;
+    border-radius:5px;
+    padding:4px 8px;
     display:inline-flex;
     align-items:center;
     gap:6px;
@@ -103,8 +102,9 @@
   .stat .k{margin-top:3px; font-size:12.5px; color:var(--clay);}
 
   .hero-media{position:relative;}
-  .hero-media .frame{border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:var(--ink); aspect-ratio:1/1; position:relative;}
-  .hero-media .frame img{width:100%; height:100%; object-fit:cover;}
+  .hero-media .frame{border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lg); background:var(--ink); aspect-ratio:1/1; position:relative; perspective:800px;}
+  .hero-media .frame img{width:100%; height:100%; object-fit:cover; transition:transform .12s ease-out;}
+  .story-media .main-shot img, .system-media img, .equip-media img{transition:transform .05s linear;}
   .float-card{position:absolute; left:20px; bottom:20px; background:rgba(25,21,16,0.85); border-radius:10px; padding:12px 16px; color:#fff;}
   .float-card .lbl{font-size:11px; color:rgba(255,255,255,0.55); font-weight:600; text-transform:uppercase; letter-spacing:0.04em;}
   .float-card .txt{font-family:'Sora',sans-serif; font-weight:600; font-size:14px; margin-top:2px;}
@@ -129,6 +129,8 @@
   .slider-label{display:flex; justify-content:space-between; align-items:baseline; font-size:13.5px; font-weight:600; color:var(--clay); margin-bottom:12px;}
   .slider-label .val{font-family:'Sora',sans-serif; font-size:16px; color:var(--ink);}
   input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:5px; border-radius:100px; background:linear-gradient(90deg, var(--blue) 0%, var(--blue) var(--fill,50%), var(--line) var(--fill,50%)); outline:none;}
+  input[type=range]:focus-visible{box-shadow:0 0 0 3px rgba(27,79,224,0.35); border-radius:100px;}
+  .vt-play:focus-visible{outline:3px solid var(--blue); outline-offset:3px;}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:#fff; border:4px solid var(--blue); box-shadow:0 2px 6px rgba(25,21,16,0.25); cursor:pointer;}
   input[type=range]::-moz-range-thumb{width:14px; height:14px; border-radius:50%; background:#fff; border:4px solid var(--blue); cursor:pointer; border:none;}
   .calc-results{margin-top:30px; display:grid; grid-template-columns:1fr 1fr 1.3fr; gap:1px; background:var(--line); border-radius:12px; overflow:hidden;}
@@ -139,22 +141,26 @@
   .result-box .v{margin-top:4px; font-family:'Sora',sans-serif; font-weight:800; font-size:21px; color:var(--ink);}
   .result-box.accent .v{color:#fff;}
   .calc-note{margin-top:22px; font-size:14px; color:var(--clay); line-height:1.6;}
+  .calc-disclaimer{margin-top:14px; font-size:12px; color:var(--clay); line-height:1.5; opacity:0.85;}
   .calc-card .btn{margin-top:22px;}
 
-  .proof-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  .proof-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
   .receipt{background:#fff;}
-  .receipt-head{padding:16px 16px 10px; border-bottom:1px dashed var(--line);}
-  .receipt-head .receipt-tag{margin-bottom:8px;}
-  .receipt-head .date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--clay);}
-  .receipt-body{padding:12px 16px 16px; display:flex; flex-direction:column; gap:8px;}
-  .receipt-row{display:flex; align-items:center; justify-content:space-between; padding:2px 0;}
-  .receipt-row .amt{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px;}
-  .receipt-row .method{font-size:11px; color:var(--clay); margin-top:2px;}
-  .receipt-row .status{font-size:10px; font-weight:600; color:var(--green); background:var(--green-bg); padding:3px 8px; border-radius:5px;}
-  .proof-footnote{margin-top:20px; font-size:13px; color:var(--clay);}
+  .receipt-head{padding:12px 12px 8px; border-bottom:1px dashed var(--line);}
+  .receipt-head .receipt-tag{margin-bottom:6px;}
+  .receipt-head .date{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--clay);}
+  .receipt-body{padding:8px 12px 12px; display:flex; flex-direction:column; gap:5px;}
+  .receipt-row{display:flex; align-items:center; justify-content:space-between; padding:1px 0;}
+  .receipt-row .amt{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12.5px;}
+  .receipt-row .method{font-size:10px; color:var(--clay); margin-top:1px;}
+  .receipt-row .status{font-size:9px; font-weight:600; color:var(--green); background:var(--green-bg); padding:2px 6px; border-radius:4px;}
+  .proof-footnote{margin-top:20px; font-size:13px; color:var(--clay); font-weight:600;}
 
   .list-rows{border-top:1px solid var(--line);}
-  .list-row{display:grid; grid-template-columns:28px 1fr; gap:16px; padding:22px 0; border-bottom:1px solid var(--line);}
+  .list-row{display:grid; grid-template-columns:28px 1fr; gap:16px; padding:22px 0; border-bottom:1px solid var(--line); transition:transform .25s ease, padding-left .25s ease;}
+  .list-row:hover{transform:translateX(4px);}
+  .list-row .ic{transition:transform .25s ease;}
+  .list-row:hover .ic{transform:scale(1.15);}
   .list-row .ic{color:var(--blue); padding-top:2px;}
   .list-row h3, .list-row h4{font-size:16.5px; font-weight:700; margin-bottom:5px;}
   .list-row p{font-size:14.5px; color:var(--clay); line-height:1.6;}
@@ -192,10 +198,39 @@
   .equip-media{border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg);}
   .equip-content > p{margin-top:14px; font-size:16px; color:var(--clay); line-height:1.7;}
 
-  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line);}
-  .test-item{padding:26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .test-item p{font-size:15px; color:var(--ink-soft); line-height:1.65; font-style:italic;}
-  .test-item .author{margin-top:14px; font-family:'Sora',sans-serif; font-weight:700; font-size:13.5px; color:var(--clay);}
+  /* ===== DEPOIMENTOS EM VÍDEO ===== */
+  .video-test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .video-test-item{position:relative; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-md); background:var(--ink); aspect-ratio:9/16;}
+  .video-test-item video{width:100%; height:100%; object-fit:cover; display:block;}
+  .video-test-item .vt-play{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(0,0,0,0.18); cursor:pointer; transition:background .2s ease;
+  }
+  .video-test-item .vt-play.hide{display:none;}
+  .video-test-item .vt-play:hover{background:rgba(0,0,0,0.3);}
+  .video-test-item .vt-play svg{
+    width:56px; height:56px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+  }
+  @media (max-width:760px){ .video-test-grid{grid-template-columns:1fr; max-width:340px; margin:0 auto;} }
+
+  /* ===== OFERTA: card único + garantia + vagas ===== */
+  .offer-section{background:var(--panel);}
+  .offer-options{grid-template-columns:1fr; max-width:520px; margin:0 auto; display:grid;}
+  .offer-card{background:#fff; border-radius:18px; padding:30px; border:1px solid var(--line-soft); box-shadow:var(--shadow-sm); display:flex; flex-direction:column;}
+  .offer-card.highlight{border:2px solid var(--blue); box-shadow:var(--shadow-md); position:relative;}
+  .offer-card h3{font-size:19px; font-weight:800; margin-bottom:6px;}
+  .offer-card ul{list-style:none; flex:1;}
+  .offer-card li{display:flex; align-items:flex-start; gap:10px; padding:8px 0; font-size:14px; color:var(--ink-soft); border-bottom:1px solid var(--line-soft);}
+  .offer-card li:last-child{border-bottom:none;}
+  .offer-card li .chk{color:var(--green); flex-shrink:0; margin-top:1px;}
+  .offer-card .btn{margin-top:20px;}
+  .offer-card .btn-note{margin-top:10px; font-size:12px; color:var(--clay); text-align:center;}
+  .offer-info{margin-top:24px; background:var(--ink); border-radius:16px; padding:26px 30px; display:flex; gap:30px; flex-wrap:wrap;}
+  .offer-info .item{flex:1; min-width:220px; display:flex; align-items:flex-start; gap:12px;}
+  .offer-info .item svg{flex-shrink:0; margin-top:2px; color:#9CDB7F;}
+  .offer-info h4{color:#fff; font-size:15px; font-weight:700; margin-bottom:4px;}
+  .offer-info p{color:rgba(255,255,255,0.6); font-size:13.5px; line-height:1.55;}
+  @media (max-width:760px){ .offer-options{grid-template-columns:1fr;} }
 
   .final-cta{margin-top:52px; background:var(--ink); border-radius:20px; padding:56px 40px; text-align:center;}
   .final-cta h2{color:#fff; font-size:clamp(26px,3.6vw,38px); font-weight:800;}
@@ -211,7 +246,6 @@
     .story-grid{gap:32px;}
     .proof-grid{grid-template-columns:repeat(2,1fr);}
     .list-grid-2{grid-template-columns:1fr;}
-    .test-grid{grid-template-columns:1fr;}
     .calc-results{grid-template-columns:1fr;}
     section{padding:48px 0;}
     .hero{padding-top:32px;}
@@ -230,8 +264,32 @@
     *{animation:none !important; transition:none !important;}
   }
 
-  .reveal{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal{opacity:0; transform:translateY(26px) scale(0.97); transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);}
   .reveal.show{opacity:1; transform:none;}
+
+  /* itens dentro de grades ganham cascata (um depois do outro) */
+  .list-row.reveal, .spec-item.reveal, .receipt.reveal{transition-delay:var(--stagger,0ms);}
+
+  .scroll-cue{
+    display:flex; align-items:center; gap:10px;
+    margin-top:38px;
+    font-family:'Sora',sans-serif; font-size:11.5px; font-weight:700; letter-spacing:1.5px;
+    color:var(--clay); text-transform:uppercase;
+  }
+  .scroll-cue .line{width:28px; height:1px; background:var(--clay); animation:scroll-cue-pulse 2.2s ease-in-out infinite;}
+  @keyframes scroll-cue-pulse{ 0%,100%{opacity:0.35;} 50%{opacity:1;} }
+
+  /* ===== FICHA TÉCNICA (spec grid) ===== */
+  .spec-section{background:var(--ink); padding:70px 0;}
+  .spec-head{max-width:640px; margin-bottom:40px;}
+  .spec-head .spec-kicker{font-family:'Sora',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; color:var(--blue); text-transform:uppercase;}
+  .spec-head h2{color:#fff; font-size:clamp(22px,2.6vw,30px); font-weight:800; margin-top:10px;}
+  .spec-grid{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(255,255,255,0.12); border-left:1px solid rgba(255,255,255,0.12);}
+  .spec-item{padding:26px 24px; border-right:1px solid rgba(255,255,255,0.12); border-bottom:1px solid rgba(255,255,255,0.12); transition:background .25s ease;}
+  .spec-item:hover{background:rgba(255,255,255,0.04);}
+  .spec-item .k{font-family:'Sora',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; color:rgba(255,255,255,0.45); text-transform:uppercase;}
+  .spec-item .v{margin-top:8px; font-family:'Sora',sans-serif; font-size:18px; font-weight:700; color:#fff;}
+  @media (max-width:700px){ .spec-grid{grid-template-columns:repeat(2,1fr);} }
 </style>
 </head>
 <body>
@@ -241,11 +299,11 @@
     <div>
       <div class="logo hero-logo"><span class="mark"></span>BLINDACELL</div>
       <h1>Transforme a blindagem de celulares na sua <em>próxima fonte de renda</em>.</h1>
-      <p class="lead">Ganhe entre R$200 e R$500 por atendimento com um serviço premium, rápido e de alta margem. Uma única blindagem leva poucos minutos para ser concluída.</p>
-      <blockquote>Aprenda um método validado para criar uma renda extra ou construir um negócio próprio, mesmo começando do zero.</blockquote>
+      <p class="lead">Veja como eu ganho de R$200 a R$500 por atendimento com um serviço premium, rápido e de alta margem. Uma única blindagem leva poucos minutos para ser concluída.</p>
+      <blockquote>Curso completo de blindagem, com kit de líquidos incluso na opção completa — você escolhe se quer só aprender a técnica ou já sair com o material principal em mãos.</blockquote>
       <div class="hero-ctas">
         <a href="#vsl" class="btn btn-primary">QUERO COMEÇAR A LUCRAR
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
       <div class="hero-stats">
@@ -253,10 +311,11 @@
         <div class="stat"><div class="v">Até R$500</div><div class="k">Por atendimento</div></div>
         <div class="stat"><div class="v">Alta margem</div><div class="k">De lucro</div></div>
       </div>
+      <div class="scroll-cue"><span class="line"></span> Role para conhecer o sistema</div>
     </div>
     <div class="hero-media">
       <div class="frame">
-        <img src="img/hero.jpg" alt="Kit profissional de blindagem em estojo">
+        <img src="img/hero.jpg" alt="Kit profissional de blindagem em estojo" width="523" height="440" loading="eager">
         <div class="float-card">
           <div class="lbl">Sistema</div>
           <div class="txt">Nano líquida · Cura 6 min</div>
@@ -270,11 +329,11 @@
   <div class="wrap">
     <div class="section-head center reveal">
       <h2>Entenda como funciona <em>em poucos minutos</em></h2>
-      <p>Veja o vídeo abaixo para conhecer o produto, como funciona a blindagem e como você pode começar a lucrar com esse serviço.</p>
+      <p>Nesse vídeo eu mostro como funciona o meu método de blindagem, na prática — e como você pode aplicar o mesmo processo pra começar a atender.</p>
     </div>
     <div class="vsl-wrap reveal">
       <div class="vsl-frame">
-        <iframe src="https://www.youtube.com/embed/txCI7n287TQ" title="Vídeo Blindacell" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/txCI7n287TQ" title="Vídeo Blindacell" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
   </div>
@@ -284,25 +343,27 @@
   <div class="wrap">
     <div class="section-head center reveal">
       <h2>Quanto você pode <em>faturar por mês</em>?</h2>
-      <p>Não é preciso dezenas de clientes por dia. Bastam 2 a 3 blindagens por semana para começar a construir uma nova fonte de renda.</p>
+      <p>Baseado no que eu faço no dia a dia, simule quanto isso pode representar pra você. Não é preciso dezenas de clientes por dia — bastam 2 a 3 blindagens por semana pra começar a construir uma nova fonte de renda.</p>
     </div>
     <div class="reveal">
       <div class="calc-card">
         <div class="slider-block">
           <div class="slider-label"><span>Aparelhos por mês</span><span class="val" id="aparelhosVal">30</span></div>
-          <input type="range" id="aparelhosRange" min="4" max="80" value="30" step="1">
+          <input type="range" id="aparelhosRange" min="4" max="80" value="30" step="1" aria-label="Aparelhos por mês">
         </div>
         <div class="slider-block">
           <div class="slider-label"><span>Ticket médio</span><span class="val" id="ticketVal">R$ 200</span></div>
-          <input type="range" id="ticketRange" min="120" max="500" value="200" step="10">
+          <input type="range" id="ticketRange" min="120" max="500" value="200" step="10" aria-label="Ticket médio por atendimento">
         </div>
         <div class="calc-results">
           <div class="result-box"><div class="k">Aparelhos</div><div class="v" id="outAparelhos">30</div></div>
           <div class="result-box"><div class="k">Ticket médio</div><div class="v" id="outTicket">R$ 200</div></div>
           <div class="result-box accent"><div class="k">Faturamento</div><div class="v" id="outFaturamento">R$ 6.000</div></div>
         </div>
+        <p class="calc-disclaimer">Valor ilustrativo, calculado a partir dos números que você ajustou acima. Resultados reais variam conforme dedicação, região e execução do método.</p>
         <p class="calc-note">Com aproximadamente 10 atendimentos, o investimento na formação pode ser recuperado. A partir daí, praticamente todo o restante representa faturamento gerado pela sua operação.</p>
-        <a href="#" class="btn btn-primary btn-block wa-link">QUERO ESSE FATURAMENTO</a>
+        <a href="#" class="btn btn-primary btn-block wa-link">QUERO COMEÇAR AGORA</a>
+        <p class="btn-note">Dúvidas ou valores? Fale comigo no WhatsApp</p>
       </div>
     </div>
   </div>
@@ -318,34 +379,53 @@
       <div class="receipt">
         <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">04 Jul 2026</div></div>
         <div class="receipt-body">
-          <div class="receipt-row"><div><div class="amt">R$ 403,51</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
-          <div class="receipt-row"><div><div class="amt">R$ 252,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 300,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 350,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 350,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Crédito 2x</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
         </div>
       </div>
       <div class="receipt">
-        <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">17 Jun 2026</div></div>
+        <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">29 Jul 2026</div></div>
         <div class="receipt-body">
-          <div class="receipt-row"><div><div class="amt">R$ 280,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
-          <div class="receipt-row"><div><div class="amt">R$ 280,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 350,00</div><div class="method">Crédito 3x</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 300,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 450,00</div><div class="method">Crédito 4x</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
           <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
-          <div class="receipt-row"><div><div class="amt">R$ 324,57</div><div class="method">Crédito 5x</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 300,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
         </div>
       </div>
       <div class="receipt">
-        <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">30 Jun 2026</div></div>
+        <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">10 Ago 2026</div></div>
         <div class="receipt-body">
           <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Crédito 2x</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
           <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
         </div>
       </div>
       <div class="receipt">
-        <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">16 Jun 2026</div></div>
+        <div class="receipt-head"><span class="receipt-tag">Comprovante real</span><div class="date">20 Ago 2026</div></div>
         <div class="receipt-body">
-          <div class="receipt-row"><div><div class="amt">R$ 280,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 350,00</div><div class="method">Crédito 3x</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 300,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 250,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 450,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
+          <div class="receipt-row"><div><div class="amt">R$ 400,00</div><div class="method">Pix</div></div><span class="status">Aprovada</span></div>
         </div>
       </div>
     </div>
-    <p class="proof-footnote reveal">Comprovantes reais de recebimentos por atendimentos de blindagem. Resultados variam conforme dedicação, região e execução do método.</p>
+    <p class="proof-footnote reveal">Estes são comprovantes reais dos meus atendimentos de blindagem. Resultados variam conforme dedicação, região e execução do método.</p>
   </div>
 </section>
 
@@ -356,27 +436,27 @@
     </div>
     <div class="list-rows reveal">
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg></div>
         <div><h3>Investimento baixo</h3><p>Você começa com pouco material e vai crescendo conforme os atendimentos aparecem.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div><h3>Aplicação rápida</h3><p>Um serviço completo é feito em poucos minutos, sem estrutura complicada.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div><h3>Demanda constante</h3><p>Todo mundo tem celular e todo mundo tem medo de quebrar a tela.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.5-8 9-4.6-.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.5-8 9-4.6-.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
         <div><h3>Passo a passo do zero</h3><p>Da primeira aplicação à entrega para o cliente, sem precisar de experiência.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div>
         <div><h3>Serviço com garantia</h3><p>Técnica correta de aplicação para entregar um acabamento profissional.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 18l5-6 4 4 7-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 18l5-6 4 4 7-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div><h3>Renda extra ou principal</h3><p>Você decide o ritmo: atender nas horas vagas ou levar como negócio.</p></div>
       </div>
     </div>
@@ -386,10 +466,10 @@
 <section class="story-section" id="historia">
   <div class="wrap story-grid">
     <div class="story-media reveal">
-      <div class="main-shot"><img src="img/story-main.jpg" alt="Fundador da Blindacell em trabalho anterior no porto"></div>
+      <div class="main-shot"><img src="img/story-main.jpg" alt="Fundador da Blindacell em trabalho anterior no porto" width="540" height="391" loading="lazy"></div>
       <div class="sub-shots">
-        <img src="img/story-sub1.jpg" alt="Porão de navio, carga">
-        <img src="img/story-sub2.jpg" alt="Carregamento de grãos em navio">
+        <img src="img/story-sub1.jpg" alt="Porão de navio, carga" width="243" height="160" loading="lazy">
+        <img src="img/story-sub2.jpg" alt="Carregamento de grãos em navio" width="243" height="160" loading="lazy">
       </div>
     </div>
     <div class="reveal">
@@ -416,10 +496,10 @@
   <div class="wrap reveal">
     <div>
       <h3>Pronto para dar o primeiro passo?</h3>
-      <div class="sub">Fale agora com nosso time e entenda como começar.</div>
+      <div class="sub">Fale comigo agora no WhatsApp e tire suas dúvidas sobre valores e como começar.</div>
     </div>
     <a href="#" class="btn btn-primary wa-link">QUERO COMEÇAR COM A BLINDACELL
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
 </div>
@@ -427,11 +507,11 @@
 <section id="sistema">
   <div class="wrap system-grid">
     <div class="system-media reveal">
-      <img src="img/sistema.jpg" alt="Frascos do sistema de blindagem">
+      <img src="img/sistema.jpg" alt="Frascos do sistema de blindagem" width="524" height="524" loading="lazy">
     </div>
     <div class="system-content reveal">
       <h2>Menos tempo aplicando. <em>Mais tempo faturando.</em></h2>
-      <p>A blindagem é feita com uma nano líquida aplicada diretamente sobre a tela. O líquido preenche as microfissuras do vidro, endurece na superfície e deixa a tela muito mais resistente a impactos e riscos — com acabamento invisível e toque original.</p>
+      <p>É o sistema que eu uso em todo atendimento: uma nano líquida aplicada diretamente sobre a tela. O líquido preenche as microfissuras do vidro, endurece na superfície e deixa a tela muito mais resistente a impactos e riscos — com acabamento invisível e toque original.</p>
       <div class="step-row">
         <div class="step-num">01</div>
         <div><h4>Líquido de blindagem</h4><p>Proteção nano líquida para telas, aplicada em poucos minutos.</p></div>
@@ -444,32 +524,49 @@
   </div>
 </section>
 
+<section class="spec-section">
+  <div class="wrap">
+    <div class="spec-head reveal">
+      <div class="spec-kicker">Ficha técnica</div>
+      <h2>O sistema por dentro</h2>
+    </div>
+    <div class="spec-grid reveal">
+      <div class="spec-item"><div class="k">Cura</div><div class="v">6 minutos</div></div>
+      <div class="spec-item"><div class="k">Camadas</div><div class="v">2 · base + acabamento</div></div>
+      <div class="spec-item"><div class="k">Aparelhos por ciclo</div><div class="v">Até 2</div></div>
+      <div class="spec-item"><div class="k">Rendimento</div><div class="v">30ml · dezenas de aplicações</div></div>
+      <div class="spec-item"><div class="k">Acabamento</div><div class="v">Invisível · toque original</div></div>
+      <div class="spec-item"><div class="k">Garantia</div><div class="v">Aplicação com garantia técnica</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="story-section" id="equipamento">
   <div class="wrap equip-grid">
     <div class="equip-content reveal">
       <h2>Muito mais que uma máquina. Uma ferramenta criada para <em>gerar produtividade</em>.</h2>
-      <p>A máquina de cura UV foi desenvolvida para proporcionar velocidade, praticidade e uma experiência profissional desde a primeira aplicação. Depois de aplicar o líquido, o aparelho entra na câmara e a luz ultravioleta faz a cura da camada de blindagem.</p>
+      <p>A máquina de cura UV foi desenvolvida para proporcionar velocidade, praticidade e uma experiência profissional desde a primeira aplicação. É a máquina que eu indico e uso nos meus próprios atendimentos. Depois de aplicar o líquido, o aparelho entra na câmara e a luz ultravioleta faz a cura da camada de blindagem. <strong>Eu indico o equipamento com melhor custo-benefício do mercado</strong> — a máquina não vem inclusa nos pacotes.</p>
       <div class="list-grid-2" style="margin-top:22px; background:#fff; border-radius:12px; overflow:hidden;">
         <div class="list-row">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
           <div><h4>Cura em 6 minutos</h4><p>Ciclo rápido, cliente atendido na hora.</p></div>
         </div>
         <div class="list-row">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="2"/></svg></div>
           <div><h4>Até 2 aparelhos</h4><p>Aplicação simultânea, mais produtividade.</p></div>
         </div>
         <div class="list-row">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
           <div><h4>Aletas configuráveis</h4><p>Se adapta a diferentes tamanhos de tela.</p></div>
         </div>
         <div class="list-row">
-          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.5-8 9-4.6-.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div class="ic"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.5-8 9-4.6-.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
           <div><h4>Acabamento premium</h4><p>Padrão profissional em todo atendimento.</p></div>
         </div>
       </div>
     </div>
     <div class="equip-media reveal">
-      <img src="img/equipamento.jpg" alt="Máquina de cura UV para blindagem de celulares">
+      <img src="img/equipamento.jpg" alt="Máquina de cura UV para blindagem de celulares" width="525" height="701" loading="lazy">
     </div>
   </div>
 </section>
@@ -481,36 +578,77 @@
     </div>
     <div class="list-grid-2 reveal">
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
         <div><h4>Sistema de blindagem</h4><p>Método completo de blindagem premium, do preparo à entrega.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 18l5-6 4 4 7-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 18l5-6 4 4 7-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div><h4>Ticket alto</h4><p>Como aumentar o valor de cada atendimento com produtos complementares de alta margem.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div><h4>Garantia profissional</h4><p>Como oferecer garantia com segurança e eliminar o medo do pós-venda.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2"/><path d="M15 14.2c2.3.4 4 2.3 4 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2"/><path d="M15 14.2c2.3.4 4 2.3 4 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div><h4>Estratégias de venda</h4><p>Como conquistar clientes, vender todos os dias e fechar mais serviços.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M10 8l5 4-5 4V8z" fill="currentColor"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M10 8l5 4-5 4V8z" fill="currentColor"/></svg></div>
         <div><h4>Vídeos passo a passo</h4><p>Aplicação completa, técnicas e processos usados diariamente.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="14" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M16 12h3l3 3v2h-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="19" r="1.6" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="1.6" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="14" height="8" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M16 12h3l3 3v2h-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="19" r="1.6" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="1.6" stroke="currentColor" stroke-width="2"/></svg></div>
         <div><h4>Fornecedores homologados</h4><p>Acesso aos fornecedores de líquidos, máquina e acessórios premium.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.5-8 9-4.6-.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.5-8 9-4.6-.5-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
         <div><h4>Plataforma de treinamento</h4><p>Conteúdo em módulos, com acesso permanente para estudar no seu ritmo.</p></div>
       </div>
       <div class="list-row">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 14v-2a8 8 0 0116 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="2" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="17" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/></svg></div>
-        <div><h4>Suporte vitalício</h4><p>Acompanhamento contínuo para tirar dúvidas e evoluir junto com você.</p></div>
+        <div class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 14v-2a8 8 0 0116 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="2" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="17" y="14" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div><h4>Suporte vitalício no WhatsApp</h4><p>Acompanhamento contínuo direto no WhatsApp, pra tirar dúvidas e evoluir junto com você.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offer-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>O que você <em>recebe</em></h2>
+      <p>É assim que eu monto minha própria operação — e é isso que eu ofereço pra quem quer seguir o mesmo caminho.</p>
+    </div>
+    <div class="offer-options reveal">
+      <div class="offer-card highlight">
+        <h3>Curso Blindacell</h3>
+        <ul>
+          <li><span class="chk">✓</span> Aulas gravadas em vídeo, passo a passo, do preparo à entrega ao cliente</li>
+          <li><span class="chk">✓</span> Estratégias de venda e como precificar seus atendimentos</li>
+          <li><span class="chk">✓</span> Acesso à lista de fornecedores homologados</li>
+          <li><span class="chk">✓</span> Plataforma de treinamento com acesso permanente</li>
+          <li><span class="chk">✓</span> Suporte vitalício direto no WhatsApp</li>
+          <li><span class="chk">✓</span> Kit de líquidos de blindagem (base + acabamento) — quantidade inicial inclusa</li>
+          <li><span class="chk">✓</span> Indicação do equipamento com melhor custo-benefício do mercado</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-block wa-link">QUERO COMEÇAR AGORA</a>
+        <p class="btn-note">Valores e condições no WhatsApp</p>
+      </div>
+    </div>
+    <div class="offer-info reveal">
+      <div class="item">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.2"/></svg>
+        <div>
+          <h4>Garantia de 7 dias</h4>
+          <p>Se em até 7 dias você sentir que não é pra você, devolvemos o valor investido.</p>
+        </div>
+      </div>
+      <div class="item">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2.2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2.2"/></svg>
+        <div>
+          <h4>Vagas limitadas por turma</h4>
+          <p>Cada turma abre com apenas 20 vagas. Fale com a gente pra saber se ainda tem vaga aberta.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -519,28 +657,34 @@
 <section id="depoimentos">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2>Quem já <em>começou</em></h2>
+      <h2>Veja o resultado da blindagem <em>na prática</em></h2>
     </div>
-    <div class="test-grid reveal">
-      <div class="test-item">
-        <p>Comecei atendendo colegas de trabalho no fim de semana. Hoje já tenho clientes recorrentes toda semana.</p>
-        <div class="author">Rafael M.</div>
+    <div class="video-test-grid reveal">
+      <div class="video-test-item">
+        <video src="videos/depoimento3.mp4" poster="videos/capa3.jpg" playsinline preload="none" controls></video>
+        <div class="vt-play" role="button" tabindex="0" aria-label="Reproduzir vídeo" data-target="2">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.35)"/><path d="M10 8.5v7l5.5-3.5z" fill="white"/></svg>
+        </div>
       </div>
-      <div class="test-item">
-        <p>Achei que fosse difícil, mas o passo a passo é simples. Na primeira semana já fiz meus primeiros serviços.</p>
-        <div class="author">Juliana S.</div>
+      <div class="video-test-item">
+        <video src="videos/depoimento1.mp4" poster="videos/capa1.jpg" playsinline preload="none" controls></video>
+        <div class="vt-play" role="button" tabindex="0" aria-label="Reproduzir vídeo" data-target="0">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.35)"/><path d="M10 8.5v7l5.5-3.5z" fill="white"/></svg>
+        </div>
       </div>
-      <div class="test-item">
-        <p>O suporte fez toda a diferença. Sempre que travei em alguma dúvida, tive resposta rápida.</p>
-        <div class="author">Diego A.</div>
+      <div class="video-test-item">
+        <video src="videos/depoimento2.mp4" poster="videos/capa2.jpg" playsinline preload="none" controls></video>
+        <div class="vt-play" role="button" tabindex="0" aria-label="Reproduzir vídeo" data-target="1">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.35)"/><path d="M10 8.5v7l5.5-3.5z" fill="white"/></svg>
+        </div>
       </div>
     </div>
 
     <div class="final-cta reveal">
       <h2>Comece hoje a sua nova <em>fonte de renda</em></h2>
-      <p>Aprenda a técnica, monte o seu kit e faça o seu primeiro atendimento.</p>
+      <p>Curso e kit de líquidos, com garantia de 7 dias. Vagas limitadas por turma — fale comigo no WhatsApp pra saber se ainda tem vaga aberta e tirar suas dúvidas.</p>
       <a href="#" class="btn btn-primary wa-link">FALAR NO WHATSAPP AGORA
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
@@ -555,6 +699,55 @@
 <script>
   const WA_LINK = "https://wa.me/5547984638658?text=" + encodeURIComponent("Olá! Vim pela página da Blindacell e quero saber mais sobre a blindagem de celulares.");
   document.querySelectorAll('.wa-link').forEach(el => el.setAttribute('href', WA_LINK));
+
+  // ===== Animações não-essenciais: adiadas até a página estar ociosa =====
+  function initEnhancements(){
+    // Tilt 3D na foto do hero ao passar o mouse (sensação de profundidade)
+    (function(){
+      const frame = document.querySelector('.hero-media .frame');
+      const img = document.querySelector('.hero-media .frame img');
+      if(!frame || !img) return;
+      frame.addEventListener('mousemove', (e) => {
+        const r = frame.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        img.style.transform = `scale(1.06) rotateX(${py * -6}deg) rotateY(${px * 6}deg)`;
+      });
+      frame.addEventListener('mouseleave', () => { img.style.transform = 'scale(1) rotateX(0) rotateY(0)'; });
+      frame.style.perspective = '800px';
+    })();
+
+    // Paralaxe suave nas fotos ao rolar
+    (function(){
+      const imgs = document.querySelectorAll('.story-media .main-shot img, .system-media img, .equip-media img');
+      if(!imgs.length) return;
+      let ticking = false;
+      function update(){
+        imgs.forEach(img => {
+          const r = img.getBoundingClientRect();
+          const vh = window.innerHeight;
+          if(r.bottom < 0 || r.top > vh) return;
+          const center = r.top + r.height/2 - vh/2;
+          img.style.transform = 'translateY(' + (center * -0.06) + 'px) scale(1.1)';
+        });
+        ticking = false;
+      }
+      function onScroll(){
+        if(!ticking){
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      update();
+    })();
+  }
+
+  if('requestIdleCallback' in window){
+    requestIdleCallback(initEnhancements, {timeout: 2000});
+  } else {
+    window.addEventListener('load', () => setTimeout(initEnhancements, 200));
+  }
 
   const aparelhosRange = document.getElementById('aparelhosRange');
   const ticketRange = document.getElementById('ticketRange');
@@ -586,6 +779,28 @@
   }
   [aparelhosRange, ticketRange].forEach(el => el.addEventListener('input', updateCalc));
   updateCalc();
+
+  // Transforma grades em cascata: cada item de dentro revela em sequência
+  document.querySelectorAll('.proof-grid.reveal, .list-rows.reveal, .spec-grid.reveal, .list-grid-2.reveal').forEach(container => {
+    container.classList.remove('reveal');
+    Array.from(container.children).forEach((child, idx) => {
+      child.classList.add('reveal');
+      child.style.setProperty('--stagger', (idx * 70) + 'ms');
+    });
+  });
+
+  // ===== Depoimentos em vídeo: tocar ao clicar =====
+  document.querySelectorAll('.video-test-item').forEach(item => {
+    const video = item.querySelector('video');
+    const playBtn = item.querySelector('.vt-play');
+    const play = () => { video.play(); playBtn.classList.add('hide'); };
+    playBtn.addEventListener('click', play);
+    playBtn.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); play(); }
+    });
+    video.addEventListener('pause', () => { playBtn.classList.remove('hide'); });
+    video.addEventListener('ended', () => { playBtn.classList.remove('hide'); });
+  });
 
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
