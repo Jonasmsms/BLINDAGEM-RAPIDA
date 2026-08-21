@@ -92,7 +92,19 @@
   .hero h1{font-size:clamp(32px, 4.2vw, 50px); font-weight:800;}
   .hero h1 em{font-style:normal; color:var(--blue);}
   .hero p.lead{margin-top:20px; font-size:18px; line-height:1.6; color:var(--ink-soft); max-width:520px;}
-  .hero blockquote{margin-top:20px; border-left:2px solid var(--line); padding-left:16px; font-style:italic; color:var(--clay); font-size:15px; line-height:1.6; max-width:520px;}
+  .hero p.lead .hl{color:var(--blue); font-weight:800;}
+  .hero blockquote{
+    margin-top:22px; max-width:520px;
+    background:var(--panel);
+    border-left:3px solid var(--blue);
+    border-radius:0 12px 12px 0;
+    padding:16px 20px;
+    font-style:normal;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.65;
+  }
+  .hero blockquote strong{color:var(--ink); font-weight:800;}
   .hero-ctas{margin-top:30px; display:flex; flex-wrap:wrap; gap:12px;}
 
   .hero-stats{margin-top:34px; display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line); padding-top:20px;}
@@ -299,8 +311,8 @@
     <div>
       <div class="logo hero-logo"><span class="mark"></span>BLINDACELL</div>
       <h1>Transforme a blindagem de celulares na sua <em>próxima fonte de renda</em>.</h1>
-      <p class="lead">Veja como eu ganho de R$200 a R$500 por atendimento com um serviço premium, rápido e de alta margem. Uma única blindagem leva poucos minutos para ser concluída.</p>
-      <blockquote>Curso completo de blindagem, com kit de líquidos incluso na opção completa — você escolhe se quer só aprender a técnica ou já sair com o material principal em mãos.</blockquote>
+      <p class="lead">Veja como eu ganho de <span class="hl">R$200 a R$500</span> por atendimento com um serviço premium, rápido e de alta margem. Uma única blindagem leva poucos minutos para ser concluída.</p>
+      <blockquote>Curso completo de blindagem, com <strong>kit de líquidos incluso</strong> na opção completa — você escolhe se quer só aprender a técnica ou já sair com o material principal em mãos.</blockquote>
       <div class="hero-ctas">
         <a href="#vsl" class="btn btn-primary">QUERO COMEÇAR A LUCRAR
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
