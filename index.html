@@ -594,5 +594,58 @@
   revealEls.forEach(el => io.observe(el));
 </script>
 
+<script>
+// Captura fbclid da URL e salva cookie _fbc
+(function(){
+  try {
+    var fbclid = new URLSearchParams(window.location.search).get('fbclid');
+    if(fbclid) {
+      var existing = document.cookie.split(';').find(function(c){ return c.trim().startsWith('_fbc='); });
+      if(!existing || existing.indexOf(fbclid) === -1) {
+        var fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+        document.cookie = '_fbc=' + fbc + '; max-age=7776000; path=/; SameSite=Lax';
+      }
+    }
+  } catch(e) {}
+})();
+
+// Facebook Pixel
+function loadPixel() {
+  if(window._pixelLoaded) return;
+  window._pixelLoaded = true;
+
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+var pageViewId = 'pv_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+var viewContentId = 'vc_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+
+fbq('init','1668414670863159');
+fbq('track','PageView',{},{eventID: pageViewId});
+fbq('track','ViewContent',{content_name:'Blindacell',content_category:'Curso',currency:'BRL'},{eventID: viewContentId});
+
+function attachPixel(){
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
+    if(el._pixelBound) return;
+    el._pixelBound=true;
+    el.addEventListener('click',function(){
+      var contactId='ct_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);
+      fbq('track','Contact',{},{eventID:contactId});
+    },{once:true});
+  });
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',attachPixel);}
+else{attachPixel();}
+
+}
+// Carrega pixel automaticamente assim que a página termina de carregar (não espera interação, então cobre 100% dos visitantes)
+if(document.readyState==='complete'){loadPixel();}else{window.addEventListener('load',loadPixel,{once:true});}
+// Fallback: carrega em 4s mesmo se o evento load atrasar
+setTimeout(loadPixel, 4000);
+</script>
+
 </body>
 </html>
