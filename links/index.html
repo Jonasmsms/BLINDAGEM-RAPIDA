@@ -30,28 +30,32 @@
   }
   .card{width:100%; max-width:420px; text-align:center;}
 
-  .hero-block{
+  .hero-image-wrap{
     position:relative;
+    margin:0 -4px 18px;
+    line-height:0;
+  }
+  .hero-image-wrap img{
+    width:100%;
+    height:auto;
+    display:block;
     border-radius:20px;
-    overflow:hidden;
-    padding:32px 20px 26px;
-    margin-bottom:22px;
-    background:
-      linear-gradient(180deg, rgba(25,21,16,0.55) 0%, rgba(25,21,16,0.78) 100%),
-      linear-gradient(135deg, #2A2118 0%, var(--ink) 100%);
-    background-size:cover;
-    background-position:center;
   }
-  .hero-block .logo,
-  .hero-block .subtitle,
-  .hero-block .cta-line{
-    position:relative;
-    z-index:1;
+  .hero-image-wrap::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:38%;
+    background:linear-gradient(180deg, rgba(244,241,234,0) 0%, var(--paper) 92%);
+    border-radius:0 0 20px 20px;
+    pointer-events:none;
   }
-  .hero-block .logo{color:#fff; margin-bottom:6px;}
-  .hero-block .logo span{color:var(--blue);}
-  .hero-block .subtitle{color:rgba(255,255,255,0.75);}
-  .hero-block .cta-line{color:#fff; margin-bottom:0;}
+
+  .hero-text{margin-bottom:22px;}
+  .hero-text .logo{color:var(--ink); margin-bottom:6px;}
+  .hero-text .logo span{color:var(--blue);}
+  .hero-text .subtitle{color:var(--clay);}
+  .hero-text .cta-line{color:var(--blue); margin-bottom:0;}
   .logo{font-family:'Sora',sans-serif; font-weight:800; font-size:23px; letter-spacing:-0.01em; color:var(--ink); margin-bottom:6px;}
   .logo span{color:var(--blue);}
   .subtitle{font-size:15px; color:var(--clay); font-weight:600; margin-bottom:8px;}
@@ -108,7 +112,10 @@
 </head>
 <body>
   <div class="card">
-    <div class="hero-block">
+    <div class="hero-image-wrap">
+      <img src="hero-image.jpg" alt="Martelo batendo na tela de um celular protegido pela blindagem Blindacell" width="900" height="999">
+    </div>
+    <div class="hero-text">
       <div class="logo">BLINDA<span>CELL</span></div>
       <p class="subtitle">Blindagem profissional de celulares</p>
       <p class="cta-line">👇 Toque em uma opção abaixo</p>
