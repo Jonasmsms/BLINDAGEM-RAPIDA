@@ -76,7 +76,7 @@
     display:flex; align-items:center; gap:16px;
     text-decoration:none; padding:19px 20px; border-radius:20px;
     background:#fff; border:1px solid rgba(25,21,16,0.06);
-    text-align:left; position:relative; overflow:hidden;
+    text-align:left; position:relative;
     box-shadow:
       0 1px 2px rgba(25,21,16,0.06),
       0 10px 24px -8px rgba(25,21,16,0.16),
@@ -89,6 +89,7 @@
     content:"";
     position:absolute; top:0; left:0; right:0; height:50%;
     background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    border-radius:20px 20px 0 0;
     pointer-events:none;
   }
   .link-btn:active{
@@ -114,6 +115,23 @@
   .link-btn.gold{border-left:3px solid var(--gold);}
   .link-btn.green{border-left:3px solid var(--wa-green);}
   .link-btn.googleblue{border-left:3px solid var(--g-blue);}
+
+  /* brilho colorido saindo do canto inferior direito, efeito contrário à borda esquerda */
+  .link-btn.gold, .link-btn.green, .link-btn.googleblue{ z-index:0; }
+  .link-btn.gold::after, .link-btn.green::after, .link-btn.googleblue::after{
+    content:"";
+    position:absolute;
+    right:-14px; bottom:-16px;
+    width:62%; height:75%;
+    border-radius:50%;
+    filter:blur(16px);
+    opacity:0.5;
+    z-index:-1;
+    pointer-events:none;
+  }
+  .link-btn.gold::after{ background:var(--gold); }
+  .link-btn.green::after{ background:var(--wa-green); }
+  .link-btn.googleblue::after{ background:var(--g-blue); }
 
   @keyframes btn-glow{
     0%, 76%, 100% {
@@ -170,8 +188,8 @@
     color:#fff;
   }
   .link-btn .txt{flex:1; position:relative; z-index:1;}
-  .link-btn .txt .main{font-family:'Sora',sans-serif; font-weight:700; font-size:16px; color:var(--ink); display:block;}
-  .link-btn .txt .sub{font-size:13px; color:var(--clay); font-weight:600; margin-top:2px; display:block;}
+  .link-btn .txt .main{font-family:'Sora',sans-serif; font-weight:800; font-size:17px; color:var(--ink); display:block; letter-spacing:-0.01em;}
+  .link-btn .txt .sub{font-size:13.5px; color:#4A443C; font-weight:700; margin-top:3px; display:block;}
   .link-btn.primary .txt .main{color:#fff;}
   .link-btn.primary .txt .sub{color:rgba(255,255,255,0.85);}
   .link-btn .arrow{color:var(--clay); font-size:18px; position:relative; z-index:1;}
