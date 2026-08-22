@@ -112,26 +112,32 @@
   .link-btn:nth-child(3){ animation-delay:1.8s; }
   .link-btn:nth-child(4){ animation-delay:2.7s; }
 
-  .link-btn.gold{border-left:3px solid var(--gold);}
-  .link-btn.green{border-left:3px solid var(--wa-green);}
-  .link-btn.googleblue{border-left:3px solid var(--g-blue);}
-
-  /* brilho colorido saindo do canto inferior direito, efeito contrário à borda esquerda */
-  .link-btn.gold, .link-btn.green, .link-btn.googleblue{ z-index:0; }
-  .link-btn.gold::after, .link-btn.green::after, .link-btn.googleblue::after{
-    content:"";
-    position:absolute;
-    right:-14px; bottom:-16px;
-    width:62%; height:75%;
-    border-radius:50%;
-    filter:blur(16px);
-    opacity:0.5;
-    z-index:-1;
-    pointer-events:none;
+  .link-btn.gold{
+    border-left:3px solid var(--gold);
+    box-shadow:
+      0 1px 2px rgba(25,21,16,0.06),
+      0 10px 24px -8px rgba(25,21,16,0.16),
+      0 18px 40px -18px rgba(25,21,16,0.20),
+      6px 4px 14px -8px rgba(201,146,43,0.45);
   }
-  .link-btn.gold::after{ background:var(--gold); }
-  .link-btn.green::after{ background:var(--wa-green); }
-  .link-btn.googleblue::after{ background:var(--g-blue); }
+  .link-btn.green{
+    border-left:3px solid var(--wa-green);
+    box-shadow:
+      0 1px 2px rgba(25,21,16,0.06),
+      0 10px 24px -8px rgba(25,21,16,0.16),
+      0 18px 40px -18px rgba(25,21,16,0.20),
+      6px 4px 14px -8px rgba(34,177,89,0.45);
+  }
+  .link-btn.googleblue{
+    border-left:3px solid var(--g-blue);
+    box-shadow:
+      0 1px 2px rgba(25,21,16,0.06),
+      0 10px 24px -8px rgba(25,21,16,0.16),
+      0 18px 40px -18px rgba(25,21,16,0.20),
+      6px 4px 14px -8px rgba(59,124,245,0.45);
+  }
+  /* essas três não usam a animação de pulso de sombra (fica só a sombra colorida fixa, discreta) */
+  .link-btn.gold, .link-btn.green, .link-btn.googleblue{ animation:none; }
 
   @keyframes btn-glow{
     0%, 76%, 100% {
