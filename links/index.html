@@ -257,5 +257,31 @@
 
     <footer>© 2026 Blindacell</footer>
   </div>
+<script>
+// Facebook Pixel — mesmo pixel do blindacell.shop
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','1668414670863159');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Blindacell - Links da Bio',content_category:'LinkInBio'});
+
+// Contact: qualquer clique em link de WhatsApp
+document.querySelectorAll('a[href*="wa.me"], a[href*="chat.whatsapp.com"]').forEach(function(el){
+  el.addEventListener('click', function(){
+    fbq('track','Contact');
+  });
+});
+
+// Lead: cliques nos outros links (curso, avaliação)
+document.querySelectorAll('a[href*="blindacell.shop"], a[href*="g.page"]').forEach(function(el){
+  el.addEventListener('click', function(){
+    fbq('trackCustom','LinkInBioClick',{link: el.href});
+  });
+});
+</script>
 </body>
 </html>
