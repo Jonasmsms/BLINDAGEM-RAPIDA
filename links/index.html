@@ -64,20 +64,41 @@
   .logo span{color:var(--blue);}
   .subtitle{font-size:15px; color:var(--clay); font-weight:600; margin-bottom:8px;}
   .cta-line{font-size:14px; font-weight:800; color:var(--blue); margin-bottom:26px;}
-  .links{display:flex; flex-direction:column; gap:14px;}
+  .links{display:flex; flex-direction:column; gap:20px; padding-top:6px;}
 
   .link-btn{
     display:flex; align-items:center; gap:16px;
-    text-decoration:none; padding:18px 20px; border-radius:16px;
-    background:#fff; border:1.5px solid var(--line);
-    text-align:left; position:relative;
-    box-shadow:0 2px 8px rgba(25,21,16,0.04);
+    text-decoration:none; padding:19px 20px; border-radius:20px;
+    background:#fff; border:1px solid rgba(25,21,16,0.06);
+    text-align:left; position:relative; overflow:hidden;
+    box-shadow:
+      0 1px 2px rgba(25,21,16,0.06),
+      0 10px 24px -8px rgba(25,21,16,0.16),
+      0 18px 40px -18px rgba(25,21,16,0.20);
+    transition:transform .18s cubic-bezier(.2,.8,.3,1), box-shadow .18s ease;
     animation:btn-glow 3.6s ease-in-out infinite;
   }
-  .link-btn:active{transform:scale(0.97);}
+  /* brilho de vidro no topo do cartão, reforça a sensação de elevação */
+  .link-btn::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:50%;
+    background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    pointer-events:none;
+  }
+  .link-btn:active{
+    transform:scale(0.96) translateY(1px);
+    box-shadow:0 1px 2px rgba(25,21,16,0.08), 0 4px 10px -4px rgba(25,21,16,0.18);
+  }
   .link-btn.primary{
-    background:var(--blue);
+    background:linear-gradient(160deg, #2E62F2 0%, var(--blue) 55%, #133C9E 100%);
     border-color:transparent;
+    box-shadow:
+      0 1px 2px rgba(255,255,255,0.25) inset,
+      0 12px 26px -8px rgba(27,79,224,0.55),
+      0 22px 46px -16px rgba(27,79,224,0.45);
+  }
+  .link-btn.primary::before{
+    background:linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0));
   }
   .link-btn:nth-child(1){ animation-delay:0s; }
   .link-btn:nth-child(2){ animation-delay:0.9s; }
@@ -85,32 +106,49 @@
   .link-btn:nth-child(4){ animation-delay:2.7s; }
 
   @keyframes btn-glow{
-    0%, 76%, 100% { box-shadow:0 2px 8px rgba(25,21,16,0.04); border-color:var(--line); }
-    38% { box-shadow:0 4px 18px rgba(27,79,224,0.22); border-color:var(--blue); }
+    0%, 76%, 100% {
+      box-shadow:0 1px 2px rgba(25,21,16,0.06), 0 10px 24px -8px rgba(25,21,16,0.16), 0 18px 40px -18px rgba(25,21,16,0.20);
+      transform:translateY(0);
+    }
+    38% {
+      box-shadow:0 1px 2px rgba(25,21,16,0.06), 0 16px 30px -8px rgba(27,79,224,0.28), 0 24px 48px -16px rgba(27,79,224,0.24);
+      transform:translateY(-3px);
+    }
   }
   .link-btn.primary{ animation:btn-glow-primary 3.6s ease-in-out infinite; }
   .link-btn.primary:nth-child(1){ animation-delay:0s; }
   @keyframes btn-glow-primary{
-    0%, 76%, 100% { box-shadow:0 6px 16px rgba(27,79,224,0.28); }
-    38% { box-shadow:0 10px 26px rgba(27,79,224,0.42); }
+    0%, 76%, 100% {
+      box-shadow:0 1px 2px rgba(255,255,255,0.25) inset, 0 12px 26px -8px rgba(27,79,224,0.55), 0 22px 46px -16px rgba(27,79,224,0.45);
+      transform:translateY(0);
+    }
+    38% {
+      box-shadow:0 1px 2px rgba(255,255,255,0.3) inset, 0 18px 34px -8px rgba(27,79,224,0.68), 0 28px 54px -14px rgba(27,79,224,0.55);
+      transform:translateY(-4px);
+    }
   }
   @media (prefers-reduced-motion: reduce){
     .link-btn{ animation:none !important; }
   }
 
   .link-btn .icon{
-    width:46px; height:46px; min-width:46px; border-radius:13px;
+    width:48px; height:48px; min-width:48px; border-radius:14px;
     display:flex; align-items:center; justify-content:center;
-    font-size:21px; background:var(--panel);
+    font-size:22px; background:linear-gradient(160deg, #fff 0%, var(--panel) 100%);
+    box-shadow:0 2px 5px rgba(25,21,16,0.10), inset 0 1px 0 rgba(255,255,255,0.8);
+    position:relative; z-index:1;
   }
-  .link-btn.primary .icon{background:rgba(255,255,255,0.20);}
-  .link-btn .txt{flex:1;}
+  .link-btn.primary .icon{
+    background:linear-gradient(160deg, rgba(255,255,255,0.30), rgba(255,255,255,0.10));
+    box-shadow:0 2px 6px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.35);
+  }
+  .link-btn .txt{flex:1; position:relative; z-index:1;}
   .link-btn .txt .main{font-family:'Sora',sans-serif; font-weight:700; font-size:16px; color:var(--ink); display:block;}
   .link-btn .txt .sub{font-size:13px; color:var(--clay); font-weight:600; margin-top:2px; display:block;}
   .link-btn.primary .txt .main{color:#fff;}
-  .link-btn.primary .txt .sub{color:rgba(255,255,255,0.8);}
-  .link-btn .arrow{color:var(--clay); font-size:18px;}
-  .link-btn.primary .arrow{color:rgba(255,255,255,0.8);}
+  .link-btn.primary .txt .sub{color:rgba(255,255,255,0.85);}
+  .link-btn .arrow{color:var(--clay); font-size:18px; position:relative; z-index:1;}
+  .link-btn.primary .arrow{color:rgba(255,255,255,0.85);}
   footer{margin-top:32px; font-size:12px; color:var(--clay);}
 </style>
 </head>
